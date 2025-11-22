@@ -1,36 +1,31 @@
 import functionalities as func
 
-todos = []
+print("Welcome to the Todo App!")
+
+todos = [] # Initializing an empty list to store todos
 
 try:
     with open("todos.txt", "r") as file:
         todos = file.readlines()
 except FileNotFoundError:
-        todos = []
+    open("todos.txt", "w").close()
+
 
 while True:
-    user_action = input("1. Add Todo\n2. Show Todos\n3. Edit Todos\n4. Delete Todos\n5. Exit\nChoose an Action: ")
+    user_action = input("1. Add Todo\n2. Show Todos\n3. Edit Todo\n4. Delete Todo\n5. Exit\nChoose an action: ")
     
     match user_action:
         case "1":
             new_todo = func.add_todo()
             todos.append(new_todo)
-            
         case "2":
-            print("Your Todos:")
-            for item in todos:
-                print(f"{todos.index(item) + 1} - {item}")
-            print("\n")
+            func.show_todos(todos)
         case "3":
-            for todo in todos:
-                print(f"{todos.index(todo) + 1} - {todo}") 
             func.edit_todo(todos)
         case "4":
-            for todo in todos:
-                print(f"{todos.index(todo) + 1} - {todo}") 
             func.delete_todo(todos)
         case "5":
-            print("Exiting the Application.")
+            print("Exiting the Todo Application. Goodbye!")
             break
         case _:
-            print("Invalid Input. Please Try again")
+            print("Invalid Choice. Please Try Again")
