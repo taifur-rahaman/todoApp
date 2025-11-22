@@ -9,7 +9,8 @@ def add_todo():
 def show_todos(todos):
     print("Your Todos:\n")
     for todo in todos:
-        print(f"{todos.index(todo) + 1} - {todo}")
+        print(f"{todos.index(todo) + 1} - {todo.strip('\n')}")
+    print("\n")
 
 def edit_todo(todos):
     show_todos(todos)

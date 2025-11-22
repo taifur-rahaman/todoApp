@@ -12,7 +12,7 @@ except FileNotFoundError:
 
 
 while True:
-    user_action = input("1. Add Todo\n2. Show Todos\n3. Edit Todo\n4. Delete Todo\n5. Exit\nChoose an action: ")
+    user_action = input("Choices:\n1. Add Todo\n2. Show Todos\n3. Edit Todo\n4. Delete Todo\n5. Exit\nChoose an action: ")
     
     match user_action:
         case "1":
