@@ -3,19 +3,21 @@ import functionalities as func
 todos = []
 
 while True:
-    user_action = int(input("1. Add Todo\n2. Show Todos\n3. Edit Todos\n4. Exit\nChoose an Action: "))
+    user_action = input("1. Add Todo\n2. Show Todos\n3. Edit Todos\n4. Exit\nChoose an Action: ")
     
     match user_action:
-        case 1:
+        case "1":
             func.add_todo(todos)
-        case 2: 
+        case "2":
+            print("Your Todos:")
             for item in todos:
-                print(item)
-        case 3:
+                print(f"{todos.index(item) + 1} - {item}")
+            print("\n")
+        case "3":
             for todo in todos:
                 print(f"{todos.index(todo) + 1} - {todo}") 
-            func.edit_todom(todos)
-        case 4:
+            func.edit_todo(todos)
+        case "4":
             print("Exiting the Application.")
             break
         case _:
