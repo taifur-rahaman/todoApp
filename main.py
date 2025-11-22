@@ -1,14 +1,20 @@
-user_promt = "Enter a Todo: "
-
 todos = []
 
 while True:
-    choice = input("Do you want to add a todo? (y/n): ")
-    if choice.lower() != 'y':
-        break
-    else: 
-        todo = input(user_promt)
-        todos.append(todo)
-        print(todos)
+    user_action = int(input("1. Add Todo\n2. Show Todos\n3. Exit\nChoose an Action: "))
     
-print(f"You have {len(todos)} todos in the list.")
+    match user_action:
+        case 1:
+            todo = input("Enter a Todo: ")
+            todos.append(todo)
+            print(f"{todo} has been added to your list")
+        case 2: 
+            for item in todos:
+                print(item)
+        case 3:
+            print("Exiting the Application.")
+            break
+        case _:
+            print("Invalid Input. Please Try again")
+            
+            
