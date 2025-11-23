@@ -2,7 +2,7 @@ def add_todo():
     todo = input("Enter a new todo: ") + "\n"
     
     with open("todos.txt", "a") as file:
-        file.write(todo)
+        file.writelines(todo)
     
     return todo
 
@@ -27,6 +27,10 @@ def edit_todo(todos):
 
 def delete_todo(todos):
     show_todos(todos)
+    
+    with open("todos.txt", "r") as file:
+        todos = file.readlines()
+        
     todo_number = int(input("Enter the number of the todo to delete: "))
     todos.pop(todo_number - 1)
     
