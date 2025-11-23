@@ -15,8 +15,15 @@ def show_todos(todos):
 def edit_todo(todos):
     show_todos(todos)
     todo_number = int(input("Enter the number of the todo to edit: "))
+    
+    with open("todos.txt", "r") as file:
+        todos = file.readlines()
+    
     new_todo = input("Enter the new todo: ") + "\n"
     todos[todo_number - 1] = new_todo
+    
+    with open("todos.txt", "w") as file:
+        file.writelines(todos)
 
 def delete_todo(todos):
     show_todos(todos)
